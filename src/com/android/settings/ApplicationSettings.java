@@ -74,21 +74,15 @@ public class ApplicationSettings extends PreferenceActivity implements
                      Settings.Secure.ZRAM_SIZE, 0)>0);
 
         mInstallLocation = (ListPreference) findPreference(KEY_APP_INSTALL_LOCATION);
-        // Is app default install location set?
-        boolean userSetInstLocation = (Settings.System.getInt(getContentResolver(),
-                Settings.Secure.SET_INSTALL_LOCATION, 0) != 0);
-        if (!userSetInstLocation) {
-            getPreferenceScreen().removePreference(mInstallLocation);
-        } else {
-            mInstallLocation.setValue(getAppInstallLocation());
-            mInstallLocation.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    String value = (String) newValue;
-                    handleUpdateAppInstallLocation(value);
-                    return false;
-                }
-            });
-        }
+        mInstallLocation.setValue(getAppInstallLocation());
+        mInstallLocation.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                String value = (String) newValue;
+                handleUpdateAppInstallLocation(value);
+                return false;
+            }
+        });
+
         if(SystemProperties.get("status.zram.device.exists","0").equals("0")){
             //if zram is missing don't show the option to the user
             getPreferenceScreen().removePreference(mToggleZSwapAppRam);
@@ -109,6 +103,7 @@ public class ApplicationSettings extends PreferenceActivity implements
                 }
             });
         }
+
         if (getResources().getConfiguration().keyboard == Configuration.KEYBOARD_NOKEYS) {
             // No hard keyboard, remove the setting for quick launch
             Preference quickLaunchSetting = findPreference(KEY_QUICK_LAUNCH);
