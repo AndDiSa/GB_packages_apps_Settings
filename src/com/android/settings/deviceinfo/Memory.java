@@ -36,6 +36,7 @@ import android.os.ServiceManager;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageEventListener;
+import android.os.SystemProperties;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
@@ -63,6 +64,10 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
 
     private static final String MEMORY_SD_GROUP = "memory_sd";
 
+    private static final String SDEXT_SIZE = "sdext_size";
+
+    private static final String SDEXT_AVAIL = "sdext_avail"; 
+
     private static final int DLG_CONFIRM_UNMOUNT = 1;
     private static final int DLG_ERROR_UNMOUNT = 2;
 
@@ -75,6 +80,9 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
     private PreferenceGroup mSdMountPreferenceGroup;
 
     boolean mSdMountToggleAdded = true;
+
+    private Preference mSdExtSize;
+    private Preference mSdExtAvail;
     
     // Access using getMountService()
     private IMountService mMountService = null;
@@ -99,6 +107,8 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
         mSdFormat = findPreference(MEMORY_SD_FORMAT);
 
         mSdMountPreferenceGroup = (PreferenceGroup)findPreference(MEMORY_SD_GROUP);
+        mSdExtSize = findPreference(SDEXT_SIZE);
+        mSdExtAvail = findPreference(SDEXT_AVAIL); 
     }
     
     @Override
@@ -323,14 +333,35 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
                 status.equals(Environment.MEDIA_NOFS) ||
                 status.equals(Environment.MEDIA_UNMOUNTABLE) ) {
                 mSdMountToggle.setEnabled(true);
-                mSdMountToggle.setTitle(mRes.getString(R.string.sd_mount));
                 mSdMountToggle.setSummary(mRes.getString(R.string.sd_mount_summary));
             } else {
                 mSdMountToggle.setEnabled(false);
-                mSdMountToggle.setTitle(mRes.getString(R.string.sd_mount));
                 mSdMountToggle.setSummary(mRes.getString(R.string.sd_insert_summary));
             }
+            mSdMountToggle.setTitle(mRes.getString(R.string.sd_mount));
         }
+
+        boolean SdExtUnMounted = SystemProperties.get("magpie.a2sd.active", "0").equals("0");
+
+            if (SdExtUnMounted) {  
+                mSdExtSize.setSummary(R.string.sd_unavailable);
+                mSdExtAvail.setSummary(R.string.sd_unavailable);
+            } else { 
+               try {
+                    File path = Environment.getSdExtDirectory();
+                    StatFs stat = new StatFs(path.getPath());
+                    long blockSize = stat.getBlockSize();
+                    long totalBlocks = stat.getBlockCount();
+                    long availBlocks = stat.getAvailableBlocks();
+
+                    mSdExtSize.setSummary(formatSize(totalBlocks * blockSize));
+                    mSdExtAvail.setSummary(formatSize(availBlocks * blockSize));                
+            }catch (IllegalArgumentException e) {
+            // this can occur if the SD card is removed, but we haven't received the
+           // ACTION_MEDIA_REMOVED Intent yet.
+                    status = Environment.MEDIA_REMOVED;
+                    }
+                   }  
 
         File path = Environment.getDataDirectory();
         StatFs stat = new StatFs(path.getPath());
