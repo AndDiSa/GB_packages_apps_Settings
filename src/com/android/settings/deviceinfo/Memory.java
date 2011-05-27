@@ -343,25 +343,25 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
 
         boolean SdExtUnMounted = SystemProperties.get("magpie.a2sd.active", "0").equals("0");
 
-            if (SdExtUnMounted) {  
-                mSdExtSize.setSummary(R.string.sd_unavailable);
-                mSdExtAvail.setSummary(R.string.sd_unavailable);
-            } else { 
-               try {
-                    File path = Environment.getSdExtDirectory();
-                    StatFs stat = new StatFs(path.getPath());
-                    long blockSize = stat.getBlockSize();
-                    long totalBlocks = stat.getBlockCount();
-                    long availBlocks = stat.getAvailableBlocks();
+        if (SdExtUnMounted) {  
+            mSdExtSize.setSummary(R.string.sd_unavailable);
+            mSdExtAvail.setSummary(R.string.sd_unavailable);
+        } else { 
+            try {
+                File path = Environment.getSdExtDirectory();
+                StatFs stat = new StatFs(path.getPath());
+                long blockSize = stat.getBlockSize();
+                long totalBlocks = stat.getBlockCount();
+                long availBlocks = stat.getAvailableBlocks();
 
-                    mSdExtSize.setSummary(formatSize(totalBlocks * blockSize));
-                    mSdExtAvail.setSummary(formatSize(availBlocks * blockSize));                
+                mSdExtSize.setSummary(formatSize(totalBlocks * blockSize));
+                mSdExtAvail.setSummary(formatSize(availBlocks * blockSize));
             }catch (IllegalArgumentException e) {
-            // this can occur if the SD card is removed, but we haven't received the
-           // ACTION_MEDIA_REMOVED Intent yet.
-                    status = Environment.MEDIA_REMOVED;
-                    }
-                   }  
+                // this can occur if the SD card is removed, but we haven't 
+                // received the ACTION_MEDIA_REMOVED Intent yet.
+                status = Environment.MEDIA_REMOVED;
+            }
+        }  
 
         File path = Environment.getDataDirectory();
         StatFs stat = new StatFs(path.getPath());
