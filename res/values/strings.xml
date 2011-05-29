@@ -2674,4 +2674,5 @@ found in the list of installed applications.</string>
     <string name="toast_magpie_disabled">ERROR: sd-ext disabled using auto</string>
     <!-- allow mounting of sd-ext on boot? -->
     <string name="mount_sd_ext">Attempt to mount sd-ext on boot</string>
+    <string name="data_bind_mount">Data2sd</string>
 </resources>

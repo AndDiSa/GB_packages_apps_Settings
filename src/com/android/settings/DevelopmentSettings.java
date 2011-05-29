@@ -39,11 +39,13 @@ public class DevelopmentSettings extends PreferenceActivity
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String ALLOW_MOCK_LOCATION = "allow_mock_location";
     private static final String MOUNT_SD_EXT="mount_sd_ext";
+    private static final String DATA_BIND_MOUNT="data_bind_mount";
 
     private CheckBoxPreference mEnableAdb;
     private CheckBoxPreference mKeepScreenOn;
     private CheckBoxPreference mAllowMockLocation;
     private CheckBoxPreference mMountSDExt;
+    private CheckBoxPreference mDataBindMount;
 
     // To track whether Yes was clicked in the adb warning dialog
     private boolean mOkClicked;
@@ -60,6 +62,7 @@ public class DevelopmentSettings extends PreferenceActivity
         mKeepScreenOn = (CheckBoxPreference) findPreference(KEEP_SCREEN_ON);
         mAllowMockLocation = (CheckBoxPreference) findPreference(ALLOW_MOCK_LOCATION);
         mMountSDExt = (CheckBoxPreference) findPreference(MOUNT_SD_EXT);
+        mDataBindMount = (CheckBoxPreference) findPreference(DATA_BIND_MOUNT);
     }
 
     @Override
@@ -73,6 +76,8 @@ public class DevelopmentSettings extends PreferenceActivity
         mAllowMockLocation.setChecked(Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.ALLOW_MOCK_LOCATION, 0) != 0);
         mMountSDExt.setChecked(SystemProperties.get("persist.sys.magpie.allow","0").equals("1"));
+        mDataBindMount.setEnabled(SystemProperties.get("persist.sys.magpie.allow","0").equals("1"));
+        mDataBindMount.setChecked(SystemProperties.get("persist.sys.magpie.data2sd","0").equals("1"));
     }
 
     @Override
@@ -106,6 +111,9 @@ public class DevelopmentSettings extends PreferenceActivity
                     mAllowMockLocation.isChecked() ? 1 : 0);
         } else if (preference == mMountSDExt) {
             SystemProperties.set("persist.sys.magpie.allow",mMountSDExt.isChecked() ? "1" : "0");
+            mDataBindMount.setEnabled(SystemProperties.get("persist.sys.magpie.allow","0").equals("1"));
+        } else if (preference == mDataBindMount) {
+            SystemProperties.set("persist.sys.magpie.data2sd",mDataBindMount.isChecked() ? "1" : "0");
         }
 
         return false;
