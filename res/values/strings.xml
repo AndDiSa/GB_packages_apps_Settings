@@ -1706,7 +1706,7 @@
     <string name="zswap_appram_enable">CompCache</string>
     <string name="zswap_appram_off">Enable 8Mb CompCache</string>
     <!-- the * will be replaced by the number of Mb-->
-    <string name="zswap_appram_on">Disable *Mb CompCache</string>
+    <string name="zswap_appram_on">Currently *Mb of CompCache is enabled</string>
     <!-- Manage applications, individual application info screen title. For example, if they click on "Browser" in "Manage applications", the title of the next screen will be this -->
     <string name="application_info_label">Application info</string>
     <!-- Manage applications, individual application info screen, section heading for stuff relating to an app's storage settings. -->
@@ -2666,4 +2666,9 @@ found in the list of installed applications.</string>
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
     <string name="sdext_memory">SD-Ext</string>
+    <!-- error message on setting default install location to sd-ext when 
+      sd-ext is dissabled-->
+    <string name="toast_magpie_disabled">ERROR: sd-ext disabled using auto</string>
+    <!-- allow mounting of sd-ext on boot? -->
+    <string name="mount_sd_ext">Attempt to mount sd-ext on boot</string>
 </resources>

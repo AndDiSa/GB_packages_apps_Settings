@@ -38,10 +38,12 @@ public class DevelopmentSettings extends PreferenceActivity
     private static final String ENABLE_ADB = "enable_adb";
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String ALLOW_MOCK_LOCATION = "allow_mock_location";
+    private static final String MOUNT_SD_EXT="mount_sd_ext";
 
     private CheckBoxPreference mEnableAdb;
     private CheckBoxPreference mKeepScreenOn;
     private CheckBoxPreference mAllowMockLocation;
+    private CheckBoxPreference mMountSDExt;
 
     // To track whether Yes was clicked in the adb warning dialog
     private boolean mOkClicked;
@@ -57,6 +59,7 @@ public class DevelopmentSettings extends PreferenceActivity
         mEnableAdb = (CheckBoxPreference) findPreference(ENABLE_ADB);
         mKeepScreenOn = (CheckBoxPreference) findPreference(KEEP_SCREEN_ON);
         mAllowMockLocation = (CheckBoxPreference) findPreference(ALLOW_MOCK_LOCATION);
+        mMountSDExt = (CheckBoxPreference) findPreference(MOUNT_SD_EXT);
     }
 
     @Override
@@ -69,6 +72,7 @@ public class DevelopmentSettings extends PreferenceActivity
                 Settings.System.STAY_ON_WHILE_PLUGGED_IN, 0) != 0);
         mAllowMockLocation.setChecked(Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.ALLOW_MOCK_LOCATION, 0) != 0);
+        mMountSDExt.setChecked(SystemProperties.get("persist.sys.magpie.allow","0").equals("1"));
     }
 
     @Override
@@ -100,6 +104,8 @@ public class DevelopmentSettings extends PreferenceActivity
         } else if (preference == mAllowMockLocation) {
             Settings.Secure.putInt(getContentResolver(), Settings.Secure.ALLOW_MOCK_LOCATION,
                     mAllowMockLocation.isChecked() ? 1 : 0);
+        } else if (preference == mMountSDExt) {
+            SystemProperties.set("persist.sys.magpie.allow",mMountSDExt.isChecked() ? "1" : "0");
         }
 
         return false;
