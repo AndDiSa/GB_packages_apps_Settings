@@ -143,6 +143,8 @@ public class ApplicationSettings extends PreferenceActivity implements
                 toast.show();
                 Settings.System.putInt(getContentResolver(),
                     Settings.Secure.DEFAULT_INSTALL_LOCATION, APP_INSTALL_AUTO);
+                mInstallLocation.setValue(APP_INSTALL_AUTO_ID);
+                return;
             }
         } else if (APP_INSTALL_SDCARD_ID.equals(value)) {
             Settings.System.putInt(getContentResolver(),
