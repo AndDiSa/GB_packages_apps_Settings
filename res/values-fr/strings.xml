@@ -1164,4 +1164,14 @@
     <string name="wimax_settings_summary" msgid="3207355006084135453">"Configurer et gérer le réseau et le modem 4G"</string>
     <string name="status_wimax_mac_address" msgid="8390791848661413416">"Adresse MAC 4G"</string>
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Mises à jour supplémentaires du système"</string>
+
+    <string name="sd_ext_name">SD-EXT</string>
+    <string name="mount_sd_ext">Tenter de monter la partition sd-ext au démarrage.</string>
+    <string name="data_bind_mount">Data2sd</string>
+    <string name="data_bind_mount_summary">rediriger /data/data vers /sd-ext/app-data</string>
+    <string name="toast_magpie_disabled">ERREUR: sd-ext désactivé, remplacement par \'auto\'</string>
+    <string name="zswap_appram_enable">CompCache</string>
+    <string name="zswap_appram_off">Activer 8Mio de CompCache</string>
+    <!-- the * will be replaced by the number of Mb-->
+    <string name="zswap_appram_on">CompCache: *Mio activés actuellement.</string>
 </resources>
