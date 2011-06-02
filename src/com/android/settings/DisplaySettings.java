@@ -26,6 +26,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -45,9 +46,11 @@ public class DisplaySettings extends PreferenceActivity implements
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
     private static final String KEY_ANIMATIONS = "animations";
     private static final String KEY_ACCELEROMETER = "accelerometer";
+    private static final String KEY_SURFACE_DITHERING = "surface_dither";
 
     private ListPreference mAnimations;
     private CheckBoxPreference mAccelerometer;
+    private CheckBoxPreference mSurfaceDither;
     private float[] mAnimationScales;
 
     private IWindowManager mWindowManager;
@@ -63,7 +66,9 @@ public class DisplaySettings extends PreferenceActivity implements
         mAnimations = (ListPreference) findPreference(KEY_ANIMATIONS);
         mAnimations.setOnPreferenceChangeListener(this);
         mAccelerometer = (CheckBoxPreference) findPreference(KEY_ACCELEROMETER);
+        mSurfaceDither = (CheckBoxPreference) findPreference(KEY_SURFACE_DITHERING);
         mAccelerometer.setPersistent(false);
+        mSurfaceDither.setPersistent(false);
 
         ListPreference screenTimeoutPreference =
             (ListPreference) findPreference(KEY_SCREEN_TIMEOUT);
@@ -144,6 +149,7 @@ public class DisplaySettings extends PreferenceActivity implements
         mAccelerometer.setChecked(Settings.System.getInt(
                 getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION, 0) != 0);
+        mSurfaceDither.setChecked(SystemProperties.get("persist.sys.use_dithering","1").equals("1"));
     }
 
     private void updateAnimationsSummary(Object value) {
@@ -165,6 +171,10 @@ public class DisplaySettings extends PreferenceActivity implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACCELEROMETER_ROTATION,
                     mAccelerometer.isChecked() ? 1 : 0);
+        }
+        if (preference == mSurfaceDither) {
+            SystemProperties.set("persist.sys.use_dithering",
+                                 mSurfaceDither.isChecked() ? "1" : "0");
         }
         return true;
     }

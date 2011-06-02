@@ -27,6 +27,10 @@
             android:key="accelerometer"
             android:title="@string/accelerometer_title"/>
 
+        <CheckBoxPreference
+            android:key="surface_dither"
+            android:title="@string/surface_dither"/>
+
         <ListPreference
             android:key="animations"
             android:title="@string/animations_title"
