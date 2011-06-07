@@ -1168,7 +1168,7 @@
     <string name="mount_sd_ext">Versuche sd-ext beim Booten zu aktivieren.</string>
     <string name="data_bind_mount">Data2sd</string>
     <string name="data_bind_mount_summary">binde /data/data nach /sd-ext/app-data</string>
-    <string name="toast_magpie_disabled">FEHLER: sd-ext abgeschaltet, benutze 'auto'</string>
+    <string name="toast_magpie_disabled">FEHLER: sd-ext abgeschaltet, benutze \'auto\'</string>
     <string name="zswap_appram_enable">CompCache</string>
     <string name="zswap_appram_off">Aktiviere 8MB CompCache</string>
     <!-- the * will be replaced by the number of Mb-->
