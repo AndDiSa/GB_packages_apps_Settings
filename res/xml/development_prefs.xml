@@ -22,6 +22,11 @@
         android:title="@string/enable_adb" 
         android:summary="@string/enable_adb_summary"/>
 
+    <CheckBoxPreference
+        android:key="allow_su_updates"
+        android:title="@string/allow_su_updates"
+        android:summary="@string/allow_su_updates_summary"/>
+
     <CheckBoxPreference 
         android:key="keep_screen_on" 
         android:title="@string/keep_screen_on" 

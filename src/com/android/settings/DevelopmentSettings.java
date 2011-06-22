@@ -36,12 +36,14 @@ public class DevelopmentSettings extends PreferenceActivity
         implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener {
 
     private static final String ENABLE_ADB = "enable_adb";
+    private static final String ALLOW_SU_UPDATES = "allow_su_updates";
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String ALLOW_MOCK_LOCATION = "allow_mock_location";
     private static final String MOUNT_SD_EXT="mount_sd_ext";
     private static final String DATA_BIND_MOUNT="data_bind_mount";
 
     private CheckBoxPreference mEnableAdb;
+    private CheckBoxPreference mAllowSuUpdates;
     private CheckBoxPreference mKeepScreenOn;
     private CheckBoxPreference mAllowMockLocation;
     private CheckBoxPreference mMountSDExt;
@@ -59,6 +61,7 @@ public class DevelopmentSettings extends PreferenceActivity
         addPreferencesFromResource(R.xml.development_prefs);
 
         mEnableAdb = (CheckBoxPreference) findPreference(ENABLE_ADB);
+        mAllowSuUpdates = (CheckBoxPreference) findPreference(ALLOW_SU_UPDATES);
         mKeepScreenOn = (CheckBoxPreference) findPreference(KEEP_SCREEN_ON);
         mAllowMockLocation = (CheckBoxPreference) findPreference(ALLOW_MOCK_LOCATION);
         mMountSDExt = (CheckBoxPreference) findPreference(MOUNT_SD_EXT);
@@ -78,6 +81,8 @@ public class DevelopmentSettings extends PreferenceActivity
         mMountSDExt.setChecked(SystemProperties.get("persist.sys.magpie.allow","0").equals("1"));
         mDataBindMount.setEnabled(SystemProperties.get("persist.sys.magpie.allow","0").equals("1"));
         mDataBindMount.setChecked(SystemProperties.get("persist.sys.magpie.data2sd","0").equals("1"));
+
+        mAllowSuUpdates.setChecked(SystemProperties.get("runtime.sys.su.allowupdate","0").equals("1"));
     }
 
     @Override
@@ -114,6 +119,8 @@ public class DevelopmentSettings extends PreferenceActivity
             mDataBindMount.setEnabled(SystemProperties.get("persist.sys.magpie.allow","0").equals("1"));
         } else if (preference == mDataBindMount) {
             SystemProperties.set("persist.sys.magpie.data2sd",mDataBindMount.isChecked() ? "1" : "0");
+        } else if (preference == mAllowSuUpdates) {
+            SystemProperties.set("runtime.sys.su.allowupdate",mAllowSuUpdates.isChecked() ? "1" : "0");
         }
 
         return false;

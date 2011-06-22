@@ -2679,4 +2679,7 @@ found in the list of installed applications.</string>
     <string name="mount_sd_ext">Attempt to mount sd-ext on boot</string>
     <string name="data_bind_mount">Data2sd</string>
     <string name="data_bind_mount_summary">bind /data/data to /sd-ext/app-data</string>
+    <!-- su update override -->
+    <string name="allow_su_updates">Update Superuser</string>
+    <string name="allow_su_updates_summary">Allow Superuser and related apps until reboot</string>
 </resources>
