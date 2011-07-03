@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.cmparts.activities;
+package com.android.settings.activities;
 
 import com.android.settings.R;
 import com.android.settings.utils.PowerWidgetUtil;

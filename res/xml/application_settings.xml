@@ -42,6 +42,15 @@
         android:entryValues="@array/app_install_location_values"/>
 
     <PreferenceScreen
+            android:key="ui_power_widget_settings_menu"
+            android:title="@string/title_expanded_widget">
+            android:summary="@string/summary_expanded_wdget"
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.activities.UIPowerWidgetActivity" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
             android:key="quick_launch"
             android:title="@string/quick_launch_title"
             android:summary="@string/quick_launch_summary">
@@ -89,14 +98,6 @@
         <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.settings"
                 android:targetClass="com.android.settings.DevelopmentSettings" />
-    </PreferenceScreen>
-
-    <PreferenceScreen
-            android:key="ui_power_widget_settings_menu"
-            android:title="@string/title_expanded_widget">
-        <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.activities.UIPowerWidgetActivity" />
     </PreferenceScreen>
 
 </PreferenceScreen>
