@@ -2682,4 +2682,6 @@ found in the list of installed applications.</string>
     <!-- su update override -->
     <string name="allow_su_updates">Update Superuser</string>
     <string name="allow_su_updates_summary">Allow Superuser and related apps until reboot</string>
+    <!-- ezGb Extras-->
+    <string name="ezgb_extras_settings_title">EzGingerbread Extras</string>
 </resources>
