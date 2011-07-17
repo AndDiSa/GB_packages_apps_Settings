@@ -1174,4 +1174,13 @@
     <string name="zswap_appram_off">Activer 8Mio de CompCache</string>
     <!-- the * will be replaced by the number of Mb-->
     <string name="zswap_appram_on">CompCache: *Mio activés actuellement.</string>
+    <!-- su update override -->
+
+    <string name="allow_su_updates">Mettre à jour Superuser</string>
+
+    <string name="allow_su_updates_summary">Autoriser les mises à jour de Superuser et apps liées jusqu\'au prochain redémarrage</string>
+
+    <!-- ezGb Extras-->
+
+    <string name="ezgb_extras_settings_title">Extras EzGingerbread</string>
 </resources>
