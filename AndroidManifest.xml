@@ -431,26 +431,6 @@
                 android:label="@string/runningservicedetails_settings_title">
         </activity>
 
-        <activity android:name=".activities.UIPowerWidgetActivity"
-            android:label="@string/title_expanded_widget">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.android.settings.SHORTCUT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".activities.PowerWidgetActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".activities.PowerWidgetOrderActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
         <activity android:name="SecuritySettings"
                 android:label="@string/location_security_settings_title"
                 android:configChanges="orientation|keyboardHidden"

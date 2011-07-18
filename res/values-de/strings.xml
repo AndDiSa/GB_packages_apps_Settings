@@ -1174,47 +1174,4 @@
     <!-- the * will be replaced by the number of Mb-->
     <string name="zswap_appram_on">CompCache: *MB aktuell aktiviert.</string>
 
-    <!-- Expanded View Power Widget -->
-    <string name="title_widget_buttons">Energie-Widget</string>
-    <string name="title_expanded_widget">Energiesteuerung in Benachrichtigungsfeld</string>
-    <string name="summary_expanded_widget">Tasten für Energiesteuerung in aufgeklappter Benachrichtigungsanzeige</string>
-    <string name="title_expanded_hide_onchange">Nach Änderung verbergen</string>
-    <string name="summary_expanded_hide_onchange">Die Benachrichtigungsanzeige sofort wieder verbergen, nachdem eine Änderung an der Energiesteuerung vorgenommen wurde.</string>
-    <string name="expanded_color_mask">Farbe der Anzeige</string>
-    <string name="title_widget_picker">Anzuzeigende Tasten</string>
-    <string name="summary_widget_picker">Tasten auswählen, die angezeigt werden sollen.</string>
-    <string name="title_widget_order">Tastenreihenfolge</string>
-    <string name="summary_widget_order">Die Widget-Tasten anordnen bzw. umsortieren</string>
-    <string name="title_buttons">Tasten</string>
-    <string name="title_toggle_wifi">WLAN</string>
-    <string name="title_toggle_bluetooth">Bluetooth</string>
-    <string name="title_toggle_gps">GPS</string>
-    <string name="title_toggle_sound">Klingelmodus</string>
-    <string name="title_toggle_brightness">Helligkeit</string>
-    <string name="title_toggle_sync">Synchronisierung</string>
-    <string name="title_toggle_wifiap">WLAN-Hotspot</string>
-    <string name="title_toggle_screentimeout">Display-Timeout</string>
-    <string name="title_toggle_mobiledata">Mobilfunk-Daten</string>
-    <string name="title_toggle_lockscreen">Gesperrter Bildschirm</string>
-    <string name="title_toggle_networkmode">2G/3G</string>
-    <string name="title_toggle_autorotate">Ausrichtung</string>
-    <string name="title_toggle_airplane">Flugmodus</string>
-    <string name="title_toggle_flashlight">Taschenlampe</string>
-    <string name="title_toggle_sleep">In Standby wechseln</string>
-    <string name="title_toggle_media_play_pause">Medien: Play/Pause</string>
-    <string name="title_toggle_media_previous">Medien: Letzter Titel</string>
-    <string name="title_toggle_media_next">Medien: Nächster Titel</string>
-    <string name="title_toggle_wimax">WiMAX</string>
-    <string name="title_button_modes">Modi für Tasten</string>
-    <string name="pref_brightness_mode_title">Helligkeitsmodi</string>
-    <string name="pref_brightness_mode_summary">Helligkeitsstufen auswählen</string>
-    <string name="pref_network_mode_title">Netzwerkmodi</string>
-    <string name="pref_network_mode_summary">Netzwerkmodus wählen</string>
-    <string name="pref_screentimeout_mode_title">Display-Timeout</string>
-    <string name="pref_screentimeout_mode_summary">Verzögerung vor automatischer Bildschirmabschaltung anpassen</string>
-    <string name="pref_ring_mode_title">Klingelmodi</string>
-    <string name="pref_ring_mode_summary">Den Klingelmodus wählen</string>
-    <string name="pref_flash_mode_title">Taschenlampe</string>
-    <string name="pref_flash_mode_summary">Wähle zwischen normaler und hoher Helligkeit der Taschenlampe</string>
-
 </resources>
