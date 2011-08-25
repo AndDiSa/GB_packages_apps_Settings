@@ -22,6 +22,7 @@ import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothUuid;
+import android.bluetooth.BluetoothNetwork;
 import android.os.Handler;
 import android.os.ParcelUuid;
 import android.util.Log;
@@ -97,6 +98,9 @@ public abstract class LocalBluetoothProfileManager {
 
                 profileManager = new OppProfileManager(localManager);
                 sProfileMap.put(Profile.OPP, profileManager);
+                
+                profileManager = new NetworkProfileManager(localManager);
+                sProfileMap.put(Profile.NETWORK, profileManager);
             }
         }
     }
@@ -195,7 +199,8 @@ public abstract class LocalBluetoothProfileManager {
     public enum Profile {
         HEADSET(R.string.bluetooth_profile_headset),
         A2DP(R.string.bluetooth_profile_a2dp),
-        OPP(R.string.bluetooth_profile_opp);
+        OPP(R.string.bluetooth_profile_opp),
+        NETWORK(R.string.bluetooth_profile_network);
 
         public final int localizedString;
 
@@ -564,5 +569,72 @@ public abstract class LocalBluetoothProfileManager {
                 return SettingsBtStatus.CONNECTION_STATUS_UNKNOWN;
             }
         }
+    }
+    //Bluetooth networking
+    private static class NetworkProfileManager extends LocalBluetoothProfileManager {
+        private BluetoothNetwork mService;
+
+        public NetworkProfileManager(LocalBluetoothManager localManager) {
+            super(localManager);
+            mService = new BluetoothNetwork(localManager.getContext());
+        }
+
+        @Override
+        public Set<BluetoothDevice> getConnectedDevices() {
+            return null;
+        }
+
+        @Override
+        public boolean connect(BluetoothDevice device) {
+            return false;
+        }
+
+        @Override
+        public boolean disconnect(BluetoothDevice device) {
+            return false;
+        }
+
+        @Override
+        public int getConnectionStatus(BluetoothDevice device) {
+            return 0;
+        }
+
+        @Override
+        public int getSummary(BluetoothDevice device) {
+            int connectionStatus = getConnectionStatus(device);
+
+            if (SettingsBtStatus.isConnectionStatusConnected(connectionStatus)) {
+                return R.string.bluetooth_a2dp_profile_summary_connected;
+            } else {
+                return SettingsBtStatus.getConnectionStatusSummary(connectionStatus);
+            }
+        }
+
+        @Override
+        public boolean isPreferred(BluetoothDevice device) {
+            return false;
+        }
+
+        @Override
+        public int getPreferred(BluetoothDevice device) {
+            return 0;
+        }
+
+        @Override
+        public void setPreferred(BluetoothDevice device, boolean preferred) {
+            
+        }
+
+
+        @Override
+        public boolean isProfileReady() {
+            return true;
+        }
+
+        @Override
+        public int convertState(int state) {
+            return 0;            
+        }
+
     }
 }
