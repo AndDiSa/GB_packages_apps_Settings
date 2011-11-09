@@ -1183,4 +1183,35 @@
     <!-- the * will be replaced by the number of Mb-->
     <string name="zswap_appram_on">CompCache: *MB aktuell aktiviert.</string>
 
+    <!-- missing translations -->
+    <string name="bluetooth_device_info_connectButton_text">Bluetooth einschalten</string>
+    <string name="default_date_format">dd/MM/yyyy</string>
+    <string name="bluetooth_device_info_alias">Geräte-Alias</string>
+    <string name="bluetooth_device_info_no_alias">Geräte-Alias hier eingeben\u2026</string>
+    <string name="bluetooth_device_info_delete">Dieses Gerät entfernen</string>
+    <string name="bluetooth_device_info_sdp">Liste der unterstützten Dienste</string>
+    <string name="bluetooth_profile_network">Netzwerk</string>
+    <string name="testing_wifi_info">Wifi Informationen</string>
+    <string name="disableNetwork">Netzwerk ausschalten</string>
+    <string name="enableNetwork">Netzwerk einschalten</string>
+    <string name="disconnect">Trennen</string>
+    <string name="wifi_status_test">Wi-Fi Status</string>
+    <string name="wifi_update">Status aktualisieren</string>
+    <string name="wifi_state_label">Wi-Fi Status :</string>
+    <string name="network_state_label">Netzwerk Status :</string>
+    <string name="supplicant_state_label">Supplicant Status :</string>
+    <string name="hidden_ssid_label">Versteckte SSID :</string>
+    <string name="scan_list_label">Scan Ergebnisse :</string>
+    <string name="wifi_state_disabling">trenne</string>
+    <string name="wifi_state_disabled">getrennt</string>
+    <string name="wifi_state_enabling">verbinde</string>
+    <string name="wifi_state_enabled">verbunden</string>
+    <string name="wifi_state_unknown">unbekannt</string>
+    <string name="wifi_config_info">Wi-Fi Konfiguration</string>
+    <string name="config_list_label">Eingerichtete Netzwerke</string>
+    <string name="mod_version_default">unbekannt</string>
+    <string name="move_app_to_sdext">Auf SD-Ext verschieben</string>
+    <string name="testing_sim_toolkit">SIM toolkit</string>
+    <string name="allow_su_updates_summary">Erlaube Update von Superuser und verbundenen Applikationen bis zum Reboot</string>
+
 </resources>
