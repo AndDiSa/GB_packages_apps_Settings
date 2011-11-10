@@ -1175,4 +1175,23 @@
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Aggiornamenti di sistema aggiuntivi"</string>
     <string name="allow_su_updates">Aggiorna Superuser</string>
     <string name="allow_su_updates_summary">Lasciare permessi Superuser con applicazioni fino al prossimo riavvio</string>
+
+    <string name="bluetooth_device_info_connectButton_text">Attiva Bluetooth</string>
+    <string name="bluetooth_device_info_no_alias">Scrivi l'alias qui\u2026</string>
+    <string name="bluetooth_device_info_delete">Elimina questo dispositivo</string>
+    <string name="bluetooth_device_info_sdp">Mostra dispositivi supportati</string>
+    <string name="testing_wifi_info">Wifi informazioni</string>
+    <string name="wifi_update">Aggionamento statistiche</string>
+    <string name="wifi_state_disabling">Disattivando</string>
+    <string name="wifi_state_disabled">Disattivo</string>
+    <string name="wifi_state_enabling">Attivando</string>
+    <string name="wifi_state_enabled">Attivo</string>
+    <string name="wifi_state_unknown">sconosciuto</string>
+    <string name="wifi_config_info">Configurazione Wi-Fi</string>
+    <string name="config_list_label">Reti configurati</string>
+    <string name="zswap_appram_off">Attiva 8MB CompCache</string>
+    <string name="zswap_appram_on">Attualmente *MB di CompCache attivati</string>
+    <string name="move_app_to_sdext">Sposta ad SD-Ext</string>
+    <string name="toast_magpie_disabled">ERRORE: sd-ext disattivato automaticalmente</string>
+    <string name="mount_sd_ext">Tentativo di montare sd-ext al boot</string>
 </resources>
