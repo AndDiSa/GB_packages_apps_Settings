@@ -1177,7 +1177,7 @@
     <string name="allow_su_updates_summary">Lasciare permessi Superuser con applicazioni fino al prossimo riavvio</string>
 
     <string name="bluetooth_device_info_connectButton_text">Attiva Bluetooth</string>
-    <string name="bluetooth_device_info_no_alias">Scrivi l'alias qui\u2026</string>
+    <string name="bluetooth_device_info_no_alias">Scrivi l\'alias qui\u2026</string>
     <string name="bluetooth_device_info_delete">Elimina questo dispositivo</string>
     <string name="bluetooth_device_info_sdp">Mostra dispositivi supportati</string>
     <string name="testing_wifi_info">Wifi informazioni</string>
